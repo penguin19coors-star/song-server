@@ -64,7 +64,6 @@ def stream_audio():
             timeout=45,
         )
 
-        # Find the output mp3
         actual_file = None
         for f in os.listdir(AUDIO_DIR):
             if f.startswith(file_id) and f.endswith(".mp3"):
@@ -80,9 +79,8 @@ def stream_audio():
         return send_file(actual_file, mimetype="audio/mpeg")
 
     except subprocess.TimeoutExpired:
-        return jsonify({"error": "Download timed out — try a shorter/more specific song name"}), 504
+        return jsonify({"error": "Download timed out"}), 504
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=8080)
