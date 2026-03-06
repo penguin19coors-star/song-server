@@ -56,7 +56,7 @@ def stream_audio():
                 "-x",
                 "--audio-format", "mp3",
                 "--audio-quality", "10",
-                "--postprocessor-args", "ffmpeg:-b:a 32k -ac 1",
+                "--postprocessor-args", "ExtractAudio:-b:a 32k -ac 1",
                 "-o", output_template,
                 f"ytsearch1:{query}",
             ],
