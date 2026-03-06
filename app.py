@@ -51,12 +51,11 @@ def stream_audio():
         result = subprocess.run(
             [
                 "yt-dlp",
-                "-f", "bestaudio[filesize<10M]/worstaudio",
+                "-f", "bestaudio[filesize<10M]/bestaudio",
                 "--no-playlist",
                 "-x",
                 "--audio-format", "mp3",
                 "--audio-quality", "10",
-                "--postprocessor-args", "ExtractAudio:-b:a 32k -ac 1",
                 "-o", output_template,
                 f"ytsearch1:{query}",
             ],
